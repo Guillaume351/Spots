@@ -18,6 +18,7 @@
 		C5A655E123945C55002C155B /* NotificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5A655E023945C55002C155B /* NotificationView.swift */; };
 		C5A655E323945C56002C155B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C5A655E223945C56002C155B /* Assets.xcassets */; };
 		C5A655E623945C56002C155B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C5A655E523945C56002C155B /* Preview Assets.xcassets */; };
+		C5A655F723945E70002C155B /* InterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5A655F623945E70002C155B /* InterfaceController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -78,6 +79,7 @@
 		C5A655E523945C56002C155B /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		C5A655E723945C56002C155B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C5A655E823945C56002C155B /* PushNotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
+		C5A655F623945E70002C155B /* InterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterfaceController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -132,6 +134,7 @@
 				C5A655E723945C56002C155B /* Info.plist */,
 				C5A655E823945C56002C155B /* PushNotificationPayload.apns */,
 				C5A655E423945C56002C155B /* Preview Content */,
+				C5A655F623945E70002C155B /* InterfaceController.swift */,
 			);
 			path = "Spots WatchKit Extension";
 			sourceTree = "<group>";
@@ -275,6 +278,7 @@
 				C5A655DB23945C55002C155B /* HostingController.swift in Sources */,
 				C5A655D923945C55002C155B /* ContentView.swift in Sources */,
 				C5A655DF23945C55002C155B /* NotificationController.swift in Sources */,
+				C5A655F723945E70002C155B /* InterfaceController.swift in Sources */,
 				C5A655DD23945C55002C155B /* ExtensionDelegate.swift in Sources */,
 				C5A655E123945C55002C155B /* NotificationView.swift in Sources */,
 			);

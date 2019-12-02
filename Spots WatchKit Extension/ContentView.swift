@@ -10,7 +10,29 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        Text("Hello, World!")
+        
+        VStack{
+            Button(action: {
+                   print("Add button tapped!")
+               }) {
+                   Image(systemName: "plus.circle")
+                       .font(.largeTitle)
+                       .foregroundColor(.red)
+               }
+            Button(action: {
+                print("List button tapped!")
+            }){
+                Image(systemName: "list.dash")
+                    .font(.largeTitle)
+                    .foregroundColor(.red)
+            }
+        
+        
+        }
+
+       
+        
+    
     }
 }
 
