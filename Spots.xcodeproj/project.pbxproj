@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C599A4B0239597D700D32DE7 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C599A4AF239597D700D32DE7 /* LocationManager.swift */; };
 		C5A655C523945C54002C155B /* Spots WatchKit App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = C5A655C423945C54002C155B /* Spots WatchKit App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		C5A655CB23945C54002C155B /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C5A655C923945C54002C155B /* Interface.storyboard */; };
 		C5A655CD23945C55002C155B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C5A655CC23945C55002C155B /* Assets.xcassets */; };
@@ -64,6 +65,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		C599A4AF239597D700D32DE7 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		C5A655C023945C54002C155B /* Spots.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Spots.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C5A655C423945C54002C155B /* Spots WatchKit App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Spots WatchKit App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C5A655CA23945C54002C155B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
@@ -135,6 +137,7 @@
 				C5A655E823945C56002C155B /* PushNotificationPayload.apns */,
 				C5A655E423945C56002C155B /* Preview Content */,
 				C5A655F623945E70002C155B /* InterfaceController.swift */,
+				C599A4AF239597D700D32DE7 /* LocationManager.swift */,
 			);
 			path = "Spots WatchKit Extension";
 			sourceTree = "<group>";
@@ -278,6 +281,7 @@
 				C5A655DB23945C55002C155B /* HostingController.swift in Sources */,
 				C5A655D923945C55002C155B /* ContentView.swift in Sources */,
 				C5A655DF23945C55002C155B /* NotificationController.swift in Sources */,
+				C599A4B0239597D700D32DE7 /* LocationManager.swift in Sources */,
 				C5A655F723945E70002C155B /* InterfaceController.swift in Sources */,
 				C5A655DD23945C55002C155B /* ExtensionDelegate.swift in Sources */,
 				C5A655E123945C55002C155B /* NotificationView.swift in Sources */,
