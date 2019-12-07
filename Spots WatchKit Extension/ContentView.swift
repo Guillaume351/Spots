@@ -27,12 +27,19 @@ struct ContentView: View {
         
         VStack{
             Text("Spots")
-           
+            
             Text("latitude: \(userLatitude)")
             Text("longitude: \(userLongitude)")
             Spacer()
             Button(action: {
                    print("Add button tapped!")
+                    let defaults = UserDefaults.standard
+                    if let stringOne = defaults.string(forKey: defaultStorageKeys.spotsKey) {
+                        print(stringOne) // Some String Value
+                        defaults.set(stringOne + ";" + self.userLatitude + "," + self.userLongitude, forKey: defaultStorageKeys.spotsKey)
+                    }else{
+                        defaults.set(self.userLatitude + "," + self.userLongitude, forKey: defaultStorageKeys.spotsKey)
+                    }
                 
                 
                }) {
@@ -46,6 +53,10 @@ struct ContentView: View {
                }
             Button(action: {
                 print("List button tapped!")
+                let defaults = UserDefaults.standard
+                if let stringOne = defaults.string(forKey: defaultStorageKeys.spotsKey) {
+                    print(stringOne) // Some String Value
+                }
             }){
                 HStack{
                     Image(systemName: "list.dash")
@@ -53,15 +64,9 @@ struct ContentView: View {
                                       .foregroundColor(.red)
                     Text("Afficher")
                 }
-              
             }
-        
-        
         }
-
-       
-        
-    
+  
     }
 }
 
