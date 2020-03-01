@@ -20,6 +20,8 @@
 		C5A655E323945C56002C155B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C5A655E223945C56002C155B /* Assets.xcassets */; };
 		C5A655E623945C56002C155B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C5A655E523945C56002C155B /* Preview Assets.xcassets */; };
 		C5A655F723945E70002C155B /* InterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5A655F623945E70002C155B /* InterfaceController.swift */; };
+		C5ECB817239D22C60025B225 /* SpotListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5ECB816239D22C60025B225 /* SpotListView.swift */; };
+		C5ECB819239D235A0025B225 /* ListContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5ECB818239D235A0025B225 /* ListContentView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -82,6 +84,8 @@
 		C5A655E723945C56002C155B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C5A655E823945C56002C155B /* PushNotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
 		C5A655F623945E70002C155B /* InterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterfaceController.swift; sourceTree = "<group>"; };
+		C5ECB816239D22C60025B225 /* SpotListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotListView.swift; sourceTree = "<group>"; };
+		C5ECB818239D235A0025B225 /* ListContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListContentView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,6 +132,7 @@
 			isa = PBXGroup;
 			children = (
 				C5A655D823945C55002C155B /* ContentView.swift */,
+				C5ECB818239D235A0025B225 /* ListContentView.swift */,
 				C5A655DA23945C55002C155B /* HostingController.swift */,
 				C5A655DC23945C55002C155B /* ExtensionDelegate.swift */,
 				C5A655DE23945C55002C155B /* NotificationController.swift */,
@@ -138,6 +143,7 @@
 				C5A655E423945C56002C155B /* Preview Content */,
 				C5A655F623945E70002C155B /* InterfaceController.swift */,
 				C599A4AF239597D700D32DE7 /* LocationManager.swift */,
+				C5ECB816239D22C60025B225 /* SpotListView.swift */,
 			);
 			path = "Spots WatchKit Extension";
 			sourceTree = "<group>";
@@ -278,8 +284,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C5ECB819239D235A0025B225 /* ListContentView.swift in Sources */,
 				C5A655DB23945C55002C155B /* HostingController.swift in Sources */,
 				C5A655D923945C55002C155B /* ContentView.swift in Sources */,
+				C5ECB817239D22C60025B225 /* SpotListView.swift in Sources */,
 				C5A655DF23945C55002C155B /* NotificationController.swift in Sources */,
 				C599A4B0239597D700D32DE7 /* LocationManager.swift in Sources */,
 				C5A655F723945E70002C155B /* InterfaceController.swift in Sources */,

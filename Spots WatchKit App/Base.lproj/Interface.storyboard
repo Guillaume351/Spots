@@ -47,5 +47,12 @@
             </objects>
             <point key="canvasLocation" x="488" y="462"/>
         </scene>
+        <!--Hosting Controller-->
+        <scene sceneID="N6F-vW-kLZ">
+            <objects>
+                <hostingController id="Yw2-8J-FB5"/>
+            </objects>
+            <point key="canvasLocation" x="701" y="141"/>
+        </scene>
     </scenes>
 </document>

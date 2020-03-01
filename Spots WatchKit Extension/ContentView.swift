@@ -51,20 +51,17 @@ struct ContentView: View {
                 }
                    
                }
-            Button(action: {
-                print("List button tapped!")
-                let defaults = UserDefaults.standard
-                if let stringOne = defaults.string(forKey: defaultStorageKeys.spotsKey) {
-                    print(stringOne) // Some String Value
-                }
-            }){
-                HStack{
-                    Image(systemName: "list.dash")
-                                      .font(.largeTitle)
-                                      .foregroundColor(.red)
-                    Text("Afficher")
-                }
-            }
+              NavigationLink(destination: ListContentView()) {
+                              HStack{
+                                  HStack{
+                                                     Image(systemName: "list.dash")
+                                                                       .font(.largeTitle)
+                                                                       .foregroundColor(.red)
+                                                     Text("Afficher")
+                                                 }
+                              }
+                              
+                          }
         }
   
     }
