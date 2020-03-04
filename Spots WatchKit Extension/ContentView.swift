@@ -8,62 +8,70 @@
 
 import SwiftUI
 import MapKit
+import CoreLocation
 
 
 struct ContentView: View {
-    @ObservedObject var locationManager = LocationManager()
+     @ObservedObject var locationManager2 = LocationManager()
+    let locationManager = CLLocationManager()
     
     var userLatitude: String {
-        return "\(locationManager.lastLocation?.coordinate.latitude ?? 0)"
-    }
-
-    var userLongitude: String {
-        return "\(locationManager.lastLocation?.coordinate.longitude ?? 0)"
+        return "\(locationManager.location?.coordinate.latitude ?? 0)"
     }
     
+    var userLongitude: String {
+        return "\(locationManager.location?.coordinate.longitude ?? 0)"
+    }
+    
+    var userCompassAngle: String {
+    
+        return "\(locationManager.heading?.magneticHeading ?? 0)"
+    }
     
     var body: some View {
-
+        locationManager.startUpdatingLocation()
+        locationManager.startUpdatingHeading()
         
-        VStack{
+        return VStack{
             Text("Spots")
             
             Text("latitude: \(userLatitude)")
             Text("longitude: \(userLongitude)")
+            Text("angle : \(userCompassAngle)")
             Spacer()
             Button(action: {
-                   print("Add button tapped!")
-                    let defaults = UserDefaults.standard
-                    if let stringOne = defaults.string(forKey: defaultStorageKeys.spotsKey) {
-                        print(stringOne) // Some String Value
-                        defaults.set(stringOne + ";" + self.userLatitude + "," + self.userLongitude, forKey: defaultStorageKeys.spotsKey)
-                    }else{
-                        defaults.set(self.userLatitude + "," + self.userLongitude, forKey: defaultStorageKeys.spotsKey)
-                    }
+                print("Add button tapped!")
+                let defaults = UserDefaults.standard
+                if let stringOne = defaults.string(forKey: defaultStorageKeys.spotsKey) {
+                    print(stringOne) // Some String Value
+                    defaults.set(stringOne + ";" + self.userLatitude + "," + self.userLongitude, forKey: defaultStorageKeys.spotsKey)
+                }else{
+                    defaults.set(self.userLatitude + "," + self.userLongitude, forKey: defaultStorageKeys.spotsKey)
+                }
                 
                 
-               }) {
+            }) {
                 HStack{
                     Image(systemName: "plus.circle")
-                    .font(.largeTitle)
-                    .foregroundColor(.red)
+                        .font(.largeTitle)
+                        .foregroundColor(.red)
                     Text("Ajouter")
                 }
-                   
-               }
-              NavigationLink(destination: ListContentView()) {
-                              HStack{
-                                  HStack{
-                                                     Image(systemName: "list.dash")
-                                                                       .font(.largeTitle)
-                                                                       .foregroundColor(.red)
-                                                     Text("Afficher")
-                                                 }
-                              }
-                              
-                          }
+                
+            }
+            NavigationLink(destination: ListContentView()) {
+                HStack{
+                    HStack{
+                        Image(systemName: "list.dash")
+                            .font(.largeTitle)
+                            .foregroundColor(.red)
+                        Text("Afficher")
+                    }
+                }
+                
+            }
         }
-  
+        
     }
 }
 

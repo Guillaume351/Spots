@@ -29,15 +29,19 @@ struct ListContentView: View {
         print(array) // returns ["1", "2", "3"]
         
         
-        return VStack {
+        return ScrollView{
             
-            ForEach(array, id: \.self) { spot in
-                Button(action: {
-                    print("Spot button tapped!")
-                }){
-                    Text("Spot ")
+            VStack {
+                
+                ForEach(array, id: \.self) { spot in
+                    Button(action: {
+                        print("Spot button tapped!")
+                    }){
+                        Text("Spot ")
+                    }
                 }
             }
+            
         }
         
         
