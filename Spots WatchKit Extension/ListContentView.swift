@@ -9,6 +9,13 @@
 import SwiftUI
 
 struct ListContentView: View {
+    
+    var locationManager : CLLocationManager
+    
+    init(locationManager : CLLocationManager) {
+        self.locationManager = locationManager
+    }
+    
     var body: some View {
         
         var allValues = ""
@@ -34,11 +41,22 @@ struct ListContentView: View {
             VStack {
                 
                 ForEach(array, id: \.self) { spot in
-                    Button(action: {
-                        print("Spot button tapped!")
-                    }){
-                        Text("Spot ")
+                    Group{ // TO solve complex return type
+                        
+                        NavigationLink(destination: DirectionView(locationManager: self.locationManager,spot: Spot(name: spot, latitude: 1.23, longitude: 1.23))){
+                            HStack{
+                                
+                                Text("Spot ")
+                                
+                                
+                            }
+                            
+                        }
+                        
+                        
                     }
+                    
+                    
                 }
             }
             
@@ -50,6 +68,6 @@ struct ListContentView: View {
 
 struct ListContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ListContentView()
+        ListContentView(locationManager: CLLocationManager())
     }
 }

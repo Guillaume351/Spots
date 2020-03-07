@@ -13,6 +13,6 @@ import SwiftUI
 
 class SpotListView: WKHostingController<ListContentView> {
     override var body: ListContentView {
-        return ListContentView()
+        return ListContentView(locationManager: CLLocationManager()) //TODO : replace the locationManager
     }
 }
