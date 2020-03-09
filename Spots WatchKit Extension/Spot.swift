@@ -8,7 +8,8 @@
 
 import Foundation
 
-class Spot{
+class Spot {
+    
     var name : String
     var latitude : Double
     var longitude : Double
@@ -18,6 +19,7 @@ class Spot{
         self.latitude = latitude
         self.longitude = longitude
     }
+    
     
     
 }

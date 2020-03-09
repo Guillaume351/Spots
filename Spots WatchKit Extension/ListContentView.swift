@@ -10,9 +10,9 @@ import SwiftUI
 
 struct ListContentView: View {
     
-    var locationManager : CLLocationManager
+    var locationManager : LocationManager
     
-    init(locationManager : CLLocationManager) {
+    init(locationManager : LocationManager) {
         self.locationManager = locationManager
     }
     
@@ -28,12 +28,25 @@ struct ListContentView: View {
             
             
         }else{
-            allValues = "Add a spot first!"
+            allValues = "0,0"
             
         }
         
         let array = allValues.components(separatedBy: ";")
-        print(array) // returns ["1", "2", "3"]
+        var allSpots = [Spot]()
+        var i = 0
+        for spot in array {
+            i+=1
+            let longLat = spot.components(separatedBy: ",")
+            allSpots.append(Spot(name:"\(i)", latitude: Double(longLat[0])!, longitude: Double(longLat[1])!))
+        }
+        
+        var spotsArray = [[String]]()
+        for spot in allSpots {
+            spotsArray.append([spot.name, String(spot.latitude), String(spot.longitude)])
+        }
+        
+        
         
         
         return ScrollView{
@@ -43,10 +56,10 @@ struct ListContentView: View {
                 ForEach(array, id: \.self) { spot in
                     Group{ // TO solve complex return type
                         
-                        NavigationLink(destination: DirectionView(locationManager: self.locationManager,spot: Spot(name: spot, latitude: 1.23, longitude: 1.23))){
+                        NavigationLink(destination: DirectionView(locationManager: self.locationManager,spot: spot)){
                             HStack{
                                 
-                                Text("Spot ")
+                                Text("Spot " + String(Int.random(in:1...100)))
                                 
                                 
                             }
@@ -55,8 +68,6 @@ struct ListContentView: View {
                         
                         
                     }
-                    
-                    
                 }
             }
             
@@ -68,6 +79,7 @@ struct ListContentView: View {
 
 struct ListContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ListContentView(locationManager: CLLocationManager())
+        // ListContentView(locationManager: CLLocationManager())
+        Text("Preview of ListContentView")
     }
 }

@@ -12,21 +12,22 @@ import CoreLocation
 
 
 struct ContentView: View {
-    @ObservedObject var locationManager2 = LocationManager()
-    let locationManager = CLLocationManager()
+  //  @ObservedObject var locationManager2 = LocationManager()
+    @ObservedObject var locationManager : LocationManager
+    
+    init(locationManager : LocationManager) {
+        self.locationManager = locationManager
+    }
     
     var userLatitude: String {
-        return "\(locationManager.location?.coordinate.latitude ?? 0)"
+        return "\(locationManager.lastLocation?.coordinate.latitude ?? 0)"
     }
     
     var userLongitude: String {
-        return "\(locationManager.location?.coordinate.longitude ?? 0)"
+        return "\(locationManager.lastLocation?.coordinate.longitude ?? 0)"
     }
     
     var body: some View {
-        locationManager.startUpdatingLocation()
-        locationManager.startUpdatingHeading()
-        
         return ScrollView{
             VStack{
                 Text("Spots")
@@ -79,7 +80,8 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        Text("Preview of ContentView")
+        //ContentView(locationManager: LocationManager(), image: <#T##Image#>)
     }
 }
 
