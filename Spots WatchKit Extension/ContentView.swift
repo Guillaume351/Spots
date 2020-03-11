@@ -12,11 +12,14 @@ import CoreLocation
 
 
 struct ContentView: View {
-  //  @ObservedObject var locationManager2 = LocationManager()
+    //  @ObservedObject var locationManager2 = LocationManager()
     @ObservedObject var locationManager : LocationManager
     
     init(locationManager : LocationManager) {
         self.locationManager = locationManager
+       
+        // window.rootViewController = UIHostingController(rootView: ContentView().environmentObject(Model()))
+        
     }
     
     var userLatitude: String {
@@ -27,46 +30,45 @@ struct ContentView: View {
         return "\(locationManager.lastLocation?.coordinate.longitude ?? 0)"
     }
     
+    
+    // @State var spotName: String = "Spot"
+    @State var textInput = "";
+    @EnvironmentObject var model: Model
     var body: some View {
+        
         return ScrollView{
             VStack{
                 Text("Spots")
                 
-                Text("latitude: \(userLatitude)")
-                Text("longitude: \(userLongitude)")
+                Text("latitude: " + String(format: "%.5f", locationManager.lastLocation?.coordinate.latitude ?? 0))
+                Text("longitude: " + String(format: "%.5f", locationManager.lastLocation?.coordinate.longitude ?? 0))
                 // Text("angle : \(userCompassAngle)")
                 Spacer()
-                Button(action: {
-                    print("Add button tapped!")
-                    let defaults = UserDefaults.standard
-                    if let stringOne = defaults.string(forKey: defaultStorageKeys.spotsKey) {
-                        print(stringOne) // Some String Value
-                        defaults.set(stringOne + ";" + self.userLatitude + "," + self.userLongitude, forKey: defaultStorageKeys.spotsKey)
-                    }else{
-                        defaults.set(self.userLatitude + "," + self.userLongitude, forKey: defaultStorageKeys.spotsKey)
-                    }
-                    
-                    
-                }) {
+                
+                NavigationLink(destination: AddSpotView(latitude: self.userLatitude, longitude: self.userLongitude), isActive: self.$model.pushed ){
                     HStack{
                         Image(systemName: "plus.circle")
                             .font(.largeTitle)
                             .foregroundColor(.red)
-                        Text("Ajouter")
+                        Text("Add")
+                        
                     }
-                    
                 }
+                
                 NavigationLink(destination: ListContentView(locationManager: self.locationManager)) {
                     
                     HStack{
                         Image(systemName: "list.dash")
                             .font(.largeTitle)
                             .foregroundColor(.red)
-                        Text("Afficher")
+                        Text("List")
+                        
                     }
                     
                     
                 }
+            }.onAppear(){
+                self.model.pushed = false
             }
             
         }
@@ -87,4 +89,8 @@ struct ContentView_Previews: PreviewProvider {
 
 struct defaultStorageKeys{
     static let spotsKey = "storeSpotsKey"
+}
+
+class Model: ObservableObject {
+    @Published var pushed = false
 }

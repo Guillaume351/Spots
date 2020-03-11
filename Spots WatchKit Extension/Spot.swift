@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Spot {
+struct Spot : Hashable{
     
     var name : String
     var latitude : Double

@@ -34,12 +34,18 @@ struct ListContentView: View {
         
         let array = allValues.components(separatedBy: ";")
         var allSpots = [Spot]()
+        
         var i = 0
         for spot in array {
             i+=1
             let longLat = spot.components(separatedBy: ",")
-            allSpots.append(Spot(name:"\(i)", latitude: Double(longLat[0])!, longitude: Double(longLat[1])!))
+            if(longLat.count == 2){
+                allSpots.append(Spot(name:"\(i)", latitude: Double(longLat[0])!, longitude: Double(longLat[1])!))
+            }else{
+                allSpots.append(Spot(name:longLat[0], latitude: Double(longLat[1])!, longitude: Double(longLat[2])!))
+            }
         }
+        
         
         var spotsArray = [[String]]()
         for spot in allSpots {
@@ -53,20 +59,15 @@ struct ListContentView: View {
             
             VStack {
                 
-                ForEach(array, id: \.self) { spot in
-                    Group{ // TO solve complex return type
-                        
+                ForEach (allSpots, id: \.self) { spot in
+                    
+                    Group{
                         NavigationLink(destination: DirectionView(locationManager: self.locationManager,spot: spot)){
-                            HStack{
-                                
-                                Text("Spot " + String(Int.random(in:1...100)))
-                                
-                                
-                            }
+                            
+                            Text(spot.name)
+                            
                             
                         }
-                        
-                        
                     }
                 }
             }

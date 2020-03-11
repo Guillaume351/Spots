@@ -10,11 +10,12 @@ import WatchKit
 import Foundation
 import SwiftUI
 
-class HostingController: WKHostingController<ContentView>, CLLocationManagerDelegate {
+class HostingController: WKHostingController<AnyView>, CLLocationManagerDelegate {
     var locationManager = LocationManager()
     
-    override var body: ContentView {
-        return ContentView(locationManager: self.locationManager)
+    override var body: AnyView {
+        let contentView = ContentView(locationManager: self.locationManager).environmentObject(Model())
+        return AnyView(contentView)
     }
     
 
