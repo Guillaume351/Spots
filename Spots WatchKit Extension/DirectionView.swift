@@ -44,13 +44,14 @@ struct DirectionView: View {
         return radiansToDegrees(radians: radiansBearing)
     }
     
+    var isLookingInTheRightDirection = false
     var body: some View {
         
         
         let lat2 = self.spot.latitude
         let lon2 = self.spot.longitude
         
-        
+        var backgroundColor = Color.black
         var distance = locationManager.lastLocation?.distance(from: CLLocation(latitude: lat2, longitude: lon2)) ?? 0.0
         var unit = "m"
         var format = "%.0f"
@@ -58,6 +59,17 @@ struct DirectionView: View {
             unit = "km"
             distance = distance / 1000
             format = "%.3f"
+        }else if distance <= 20 {
+            backgroundColor = Color.green
+            
+        }
+        let angle = (self.locationManager.degrees) + getBearingBetweenTwoPoints1(point1: locationManager.lastLocation!, point2: CLLocation(latitude: lat2, longitude: lon2))
+        if(!isLookingInTheRightDirection && abs(angle) <= 8){
+           // let generator = UINotificationFeedbackGenerator()
+              //  generator.notificationOccurred(.success)
+        }
+        if(isLookingInTheRightDirection && abs(angle) > 8){
+            
         }
         return VStack {
             HStack{
@@ -66,9 +78,9 @@ struct DirectionView: View {
             
             ZStack{
                 Image("compass").resizable()
-            }.rotationEffect(Angle(degrees:  (self.locationManager.degrees) + getBearingBetweenTwoPoints1(point1: locationManager.lastLocation!, point2: CLLocation(latitude: lat2, longitude: lon2))))
+            }.rotationEffect(Angle(degrees:  angle))
             Text(String(format: format, distance) + " " + unit)
-        }
+        }.background(backgroundColor)
         
         
     }

@@ -30,10 +30,10 @@ struct AddSpotView: View {
                     let defaults = UserDefaults.standard
                     if let stringOne = defaults.string(forKey: defaultStorageKeys.spotsKey) {
                         print(stringOne) // Some String Value
-                        let text = stringOne + ";" + self.name + "," + (self.userLatitude) + "," + (self.userLongitude)
+                        let text = stringOne + self.name + "," + (self.userLatitude) + "," + (self.userLongitude) + ";"
                         defaults.set(text, forKey: defaultStorageKeys.spotsKey)
                     }else{
-                        defaults.set((self.userLatitude) + "," + (self.userLongitude), forKey: defaultStorageKeys.spotsKey)
+                        defaults.set(self.name + "," + (self.userLatitude) + "," + (self.userLongitude) + ";", forKey: defaultStorageKeys.spotsKey)
                     }
                     self.name = self.name.replacingOccurrences(of: ",", with: " ")
                     self.name = self.name.replacingOccurrences(of: ";", with: " ")

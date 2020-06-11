@@ -11,6 +11,7 @@ import SwiftUI
 struct ListContentView: View {
     
     var locationManager : LocationManager
+    var deleteMode = false // Should touching a button ask to delete it ?
     
     init(locationManager : LocationManager) {
         self.locationManager = locationManager
@@ -23,27 +24,28 @@ struct ListContentView: View {
         if let stringOne = defaults.string(forKey: defaultStorageKeys.spotsKey) {
             print(stringOne) // Some String Value
             allValues = stringOne
-            
-            
-            
-            
-        }else{
-            allValues = "0,0"
-            
         }
         
         let array = allValues.components(separatedBy: ";")
+        
+        
         var allSpots = [Spot]()
         
         var i = 0
+        
+        
         for spot in array {
-            i+=1
-            let longLat = spot.components(separatedBy: ",")
-            if(longLat.count == 2){
-                allSpots.append(Spot(name:"\(i)", latitude: Double(longLat[0])!, longitude: Double(longLat[1])!))
-            }else{
-                allSpots.append(Spot(name:longLat[0], latitude: Double(longLat[1])!, longitude: Double(longLat[2])!))
+            if(spot.count > 1){
+                
+                i+=1
+                let longLat = spot.components(separatedBy: ",")
+                if(longLat.count == 2){
+                    allSpots.append(Spot(name:"\(i)", latitude: Double(longLat[0])!, longitude: Double(longLat[1])!))
+                }else{
+                    allSpots.append(Spot(name:longLat[0], latitude: Double(longLat[1])!, longitude: Double(longLat[2])!))
+                }
             }
+            
         }
         
         
@@ -71,11 +73,19 @@ struct ListContentView: View {
                     }
                 }
             }
-            
-        }
+        }.contextMenu(menuItems: {
+            NavigationLink(destination: EditSpotsView()) {
+                VStack{
+                    Image(systemName: "trash")
+                    Text("Delete")
+                }
+            }
+        })
         
         
     }
+    
+    
 }
 
 struct ListContentView_Previews: PreviewProvider {

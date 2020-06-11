@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C5355816241BD09E00F74DF5 /* EditSpotsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5355815241BD09E00F74DF5 /* EditSpotsView.swift */; };
 		C557D29C2413991300973A5B /* DirectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C557D29B2413991300973A5B /* DirectionView.swift */; };
 		C557D29E24139FDA00973A5B /* Spot.swift in Sources */ = {isa = PBXBuildFile; fileRef = C557D29D24139FDA00973A5B /* Spot.swift */; };
 		C599A4B0239597D700D32DE7 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C599A4AF239597D700D32DE7 /* LocationManager.swift */; };
@@ -69,6 +70,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		C5355815241BD09E00F74DF5 /* EditSpotsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditSpotsView.swift; sourceTree = "<group>"; };
 		C557D29B2413991300973A5B /* DirectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DirectionView.swift; sourceTree = "<group>"; };
 		C557D29D24139FDA00973A5B /* Spot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Spot.swift; sourceTree = "<group>"; };
 		C599A4AF239597D700D32DE7 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
@@ -150,6 +152,7 @@
 				C599A4AF239597D700D32DE7 /* LocationManager.swift */,
 				C557D29D24139FDA00973A5B /* Spot.swift */,
 				C5CB39192416B4A400D48BB3 /* AddSpotView.swift */,
+				C5355815241BD09E00F74DF5 /* EditSpotsView.swift */,
 			);
 			path = "Spots WatchKit Extension";
 			sourceTree = "<group>";
@@ -298,6 +301,7 @@
 				C5A655DF23945C55002C155B /* NotificationController.swift in Sources */,
 				C599A4B0239597D700D32DE7 /* LocationManager.swift in Sources */,
 				C5A655F723945E70002C155B /* InterfaceController.swift in Sources */,
+				C5355816241BD09E00F74DF5 /* EditSpotsView.swift in Sources */,
 				C557D29E24139FDA00973A5B /* Spot.swift in Sources */,
 				C5A655DD23945C55002C155B /* ExtensionDelegate.swift in Sources */,
 				C5A655E123945C55002C155B /* NotificationView.swift in Sources */,
@@ -448,7 +452,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 4;
+				CURRENT_PROJECT_VERSION = 6;
 				DEVELOPMENT_ASSET_PATHS = "\"Spots WatchKit Extension/Preview Content\"";
 				DEVELOPMENT_TEAM = K29MSNV5QP;
 				ENABLE_PREVIEWS = YES;
@@ -458,6 +462,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
+				MARKETING_VERSION = 1.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.guillaumeclaverie.Spots.watchkitapp.watchkitextension;
 				PRODUCT_NAME = "${TARGET_NAME}";
 				SDKROOT = watchos;
@@ -473,7 +478,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 4;
+				CURRENT_PROJECT_VERSION = 6;
 				DEVELOPMENT_ASSET_PATHS = "\"Spots WatchKit Extension/Preview Content\"";
 				DEVELOPMENT_TEAM = K29MSNV5QP;
 				ENABLE_PREVIEWS = YES;
@@ -483,6 +488,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
+				MARKETING_VERSION = 1.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.guillaumeclaverie.Spots.watchkitapp.watchkitextension;
 				PRODUCT_NAME = "${TARGET_NAME}";
 				SDKROOT = watchos;
@@ -499,10 +505,11 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 4;
+				CURRENT_PROJECT_VERSION = 6;
 				DEVELOPMENT_TEAM = K29MSNV5QP;
 				IBSC_MODULE = Spots_WatchKit_Extension;
 				INFOPLIST_FILE = "Spots WatchKit App/Info.plist";
+				MARKETING_VERSION = 1.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.guillaumeclaverie.Spots.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
@@ -519,10 +526,11 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 4;
+				CURRENT_PROJECT_VERSION = 6;
 				DEVELOPMENT_TEAM = K29MSNV5QP;
 				IBSC_MODULE = Spots_WatchKit_Extension;
 				INFOPLIST_FILE = "Spots WatchKit App/Info.plist";
+				MARKETING_VERSION = 1.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.guillaumeclaverie.Spots.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
@@ -537,9 +545,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 4;
+				CURRENT_PROJECT_VERSION = 6;
 				DEVELOPMENT_TEAM = K29MSNV5QP;
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.guillaumeclaverie.Spots;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos";
@@ -551,9 +559,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 4;
+				CURRENT_PROJECT_VERSION = 6;
 				DEVELOPMENT_TEAM = K29MSNV5QP;
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.guillaumeclaverie.Spots;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos";
