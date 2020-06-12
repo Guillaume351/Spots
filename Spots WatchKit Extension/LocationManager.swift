@@ -17,12 +17,30 @@ class LocationManager : NSObject, ObservableObject{
         self.locationManager.delegate = self
         self.locationManager.desiredAccuracy = kCLLocationAccuracyBest
         self.locationManager.requestWhenInUseAuthorization()
-        self.locationManager.startUpdatingLocation()
-        if CLLocationManager.headingAvailable()
-        {
-            self.locationManager.headingFilter = 5
-            self.locationManager.startUpdatingHeading()
+        
+        
+        if CLLocationManager.locationServicesEnabled() {
+            switch CLLocationManager.authorizationStatus() {
+                case .notDetermined, .restricted, .denied:
+                    print("No access")
+                case .authorizedAlways, .authorizedWhenInUse:
+                    print("Access")
+                
+                
+                
+                self.locationManager.startUpdatingLocation()
+                       if CLLocationManager.headingAvailable()
+                       {
+                           self.locationManager.headingFilter = 1
+                           self.locationManager.startUpdatingHeading()
+                       }
+                @unknown default:
+                break
+            }
+            } else {
+                print("Location services are not enabled")
         }
+       
     }
     
     @Published var locationStatus: CLAuthorizationStatus? {

@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Spot : Hashable{
+struct Spot : Hashable, Codable{
     
     var name : String
     var latitude : Double

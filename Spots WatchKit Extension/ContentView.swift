@@ -35,7 +35,11 @@ struct ContentView: View {
     @State var textInput = "";
     @EnvironmentObject var model: Model
     var body: some View {
-        
+        if locationManager.locationStatus == .authorizedAlways || locationManager.locationStatus ==  .authorizedWhenInUse {
+             print("Main view displayed, location is enabled")
+        }else{
+             print("Location is not available but main view is displayed")
+        }
         return ScrollView{
             VStack{
                 Text("Spots")
