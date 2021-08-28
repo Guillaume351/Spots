@@ -14,7 +14,7 @@ class HostingController: WKHostingController<AnyView>, CLLocationManagerDelegate
     var locationManager = LocationManager()
     
     override var body: AnyView {
-        let contentView = ContentView(locationManager: self.locationManager).environmentObject(Model())
+        let contentView = ContentView(locationManager: self.locationManager, model: Model())
         return AnyView(contentView)
     }
     

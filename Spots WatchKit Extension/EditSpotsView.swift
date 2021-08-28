@@ -22,7 +22,7 @@ struct EditSpotsView: View {
             
         }
         
-        var array = allValues.components(separatedBy: ";")
+        let array = allValues.components(separatedBy: ";")
         
         var allSpots = [Spot]()
         

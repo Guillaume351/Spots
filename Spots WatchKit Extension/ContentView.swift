@@ -15,9 +15,9 @@ struct ContentView: View {
     //  @ObservedObject var locationManager2 = LocationManager()
     @ObservedObject var locationManager : LocationManager
     
-    init(locationManager : LocationManager) {
+    init(locationManager : LocationManager, model : Model) {
         self.locationManager = locationManager
-       
+        self.model = model
         // window.rootViewController = UIHostingController(rootView: ContentView().environmentObject(Model()))
         
     }
@@ -33,7 +33,7 @@ struct ContentView: View {
     
     // @State var spotName: String = "Spot"
     @State var textInput = "";
-    @EnvironmentObject var model: Model
+    @ObservedObject var model: Model
     var body: some View {
         if locationManager.locationStatus == .authorizedAlways || locationManager.locationStatus ==  .authorizedWhenInUse {
              print("Main view displayed, location is enabled")
@@ -49,7 +49,7 @@ struct ContentView: View {
                 // Text("angle : \(userCompassAngle)")
                 Spacer()
                 
-                NavigationLink(destination: AddSpotView(latitude: self.userLatitude, longitude: self.userLongitude), isActive: self.$model.pushed ){
+                NavigationLink(destination: AddSpotView(latitude: self.userLatitude, longitude: self.userLongitude, model: self.model), isActive: self.$model.pushed ){
                     HStack{
                         Image(systemName: "plus.circle")
                             .font(.largeTitle)

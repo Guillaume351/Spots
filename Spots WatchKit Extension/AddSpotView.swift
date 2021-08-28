@@ -9,15 +9,16 @@
 import SwiftUI
 
 struct AddSpotView: View {
-    @EnvironmentObject var model: Model
+    @ObservedObject var model: Model
     @State var name = "Spot"
     
     let userLatitude, userLongitude : String
     
     
-    init(latitude : String, longitude : String) {
+    init(latitude : String, longitude : String, model : Model) {
         self.userLatitude = latitude
         self.userLongitude = longitude
+        self.model = model
     }
     
     var body: some View {
